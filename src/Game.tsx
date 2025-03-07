@@ -18,31 +18,31 @@ const GameScene = () => {
   });
 
   const { rotationX, rotationY, rotationZ } = useControls('Ship Rotation', {
-    rotationX: { value: 0, min: -Math.PI, max: Math.PI, step: 0.01 },
-    rotationY: { value: 0, min: -Math.PI, max: Math.PI, step: 0.01 },
+    rotationX: { value: -1.4, min: -Math.PI, max: Math.PI, step: 0.01 },
+    rotationY: { value: 3.14, min: -Math.PI, max: Math.PI, step: 0.01 },
     rotationZ: { value: 0, min: -Math.PI, max: Math.PI, step: 0.01 },
   });
 
   return (
     <>
-     <Canvas
-      gl={{
-        antialias: false
-      }}
-    >
-      <ambientLight intensity={intensity} />
-      <Physics debug timeStep="vary" gravity={[0, 0, 0]}>
-        <Suspense fallback={null}>
-          <SpaceFighter rotation={[rotationX, rotationY, rotationZ]} />
-        </Suspense>
-      </Physics>
-      <OrbitControls
-        enablePan={true}
-        enableZoom={true}
-        enableRotate={true}
-        makeDefault
-      />
-      <Stats />
+      <Canvas
+        gl={{
+          antialias: false,
+        }}
+      >
+        <ambientLight intensity={intensity} />
+        <Physics debug timeStep="vary" gravity={[0, 0, 0]}>
+          <Suspense fallback={null}>
+            <SpaceFighter rotation={[rotationX, rotationY, rotationZ]} />
+          </Suspense>
+        </Physics>
+        <OrbitControls
+          enablePan={true}
+          enableZoom={true}
+          enableRotate={true}
+          makeDefault
+        />
+        <Stats />
       </Canvas>
     </>
   );

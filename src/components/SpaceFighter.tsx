@@ -22,7 +22,7 @@ interface SpaceFighterProps {
 
 const SpaceFighter = ({
   position = [0, 0, 0],
-  rotation = [0, 0, 0],
+  rotation = [-1.4, 3.14, 0],
   scale = 1,
 }: SpaceFighterProps) => {
   // Load the ship model
